@@ -6,12 +6,12 @@ export const appwriteConfig = {
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
     platform: "com.sjm.fastfoodapp",
     databaseId: '68da6f8700020e47e6b8',
-    bucketId: '',
+    bucketId: '68da8d1e0023c12f58c1',
     userCollectionId: '68da700b002d97e07bbc',
     categoriesCollectionId: '68da85d700261e8ed674',
-    menuCollectionId: '',
-    customizationsCollectionId: '',
-    menuCustomizationsCollectionId: ''
+    menuCollectionId: '68da871700395ada19eb',
+    customizationsCollectionId: '68da89c70005e190b30c',
+    menuCustomizationsCollectionId: '68da8b55001e46280e8c'
 }
 
 export const client = new Client();

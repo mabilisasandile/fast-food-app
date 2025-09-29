@@ -1,4 +1,4 @@
-import {FlatList, Text, View} from 'react-native'
+import {Button, FlatList, Text, View} from 'react-native'
 import {SafeAreaView} from "react-native-safe-area-context";
 import useAppwrite from "@/lib/useAppwrite";
 import {getCategories, getMenu} from "@/lib/appwrite";
@@ -11,6 +11,7 @@ import {MenuItem} from "@/type";
 
 import Filter from "@/components/Filter";
 import SearchBar from "@/components/SearchBar";
+import seed from '@/lib/seed';
 
 const Search = () => {
     const { category, query } = useLocalSearchParams<{query: string; category: string}>()
@@ -24,6 +25,14 @@ const Search = () => {
 
     return (
         <SafeAreaView className="bg-white h-full">
+            <Button
+                title="Seed"
+                onPress={() =>
+                    seed().catch((error) =>
+                        console.log("❌ Failed to seed database:", error?.message, error)
+                    )
+                }
+            />
             <FlatList
                 data={data}
                 renderItem={({ item, index }) => {
@@ -59,6 +68,8 @@ const Search = () => {
                 )}
                 ListEmptyComponent={() => !loading && <Text>No results</Text>}
             />
+
+            
         </SafeAreaView>
     )
 }
